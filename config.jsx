@@ -1,0 +1,1 @@
+export const BASE_TEST = 'http://192.168.1.188:5442'
