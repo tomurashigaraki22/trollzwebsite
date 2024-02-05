@@ -53,7 +53,7 @@ const Best = () => {
                   {/* Display your item content here */}
                   <div className="flex flex-col items-start cursor-pointer">
                     <img
-                      src={`http://192.168.1.188:5442/${item.img}`}
+                      src={`${BASE_TEST}/${item.img}`}
                       alt="Image"
                       className="w-full mb-2"
                     />

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { BASE_TEST } from '../../config';
+import { useNavigate } from "react-router-dom";
 
 const FlashSales = () => {
   const [items, setItems] = useState([]);
@@ -27,6 +28,8 @@ const FlashSales = () => {
     }
     getItems();
   }, []);
+
+  const navigate = useNavigate()
 
   return (
     <div>
@@ -60,12 +63,12 @@ const FlashSales = () => {
         </div>
         <div className="flex space-x-4 pt-10">
           {items.map((item, index) => (
-            <div key={index} className="border-4 p-4 w-[200px] hover:border-red-600 ml-[100px]">
+            <div key={index} className="border-4 p-4 w-[200px] hover:border-red-600 ml-[100px]" onClick={() => navigate(`/product/${item.id}`)}>
               <div className="flex flex-col items-center justify-center">
                 {/* Display your item content here */}
                 <div className="flex flex-col items-start cursor-pointer">
                   <img
-                    src={`http://192.168.1.188:5442/${item.img}`}
+                    src={`${BASE_TEST}/${item.img}`}
                     alt="Image"
                     className="w-full mb-2"
                   />

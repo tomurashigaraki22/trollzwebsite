@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import NavHome from "../components/NavHome";
 import Footer from "../components/Footer";
@@ -10,8 +10,24 @@ import Best from "../components/Best";
 import Asset from "../components/asset";
 import Featured from "../components/Featured";
 import Prefooter from "../components/Prefooter";
+import jwt_decode from 'jwt-decode'
 
 const HomePage = () => {
+    const [email, setemail] = useState('')
+
+
+    useEffect(() => {
+        async function getDeets(){
+            const token = localStorage.getItem('token')
+            console.log('Token: ', token)
+            const decodedtoken = jwt_decode(token)
+            console.log(decodedtoken)
+            const email = decodedtoken.email
+        }
+        getDeets()
+    }, [])
+
+
     return (
         <div>
             <Header />

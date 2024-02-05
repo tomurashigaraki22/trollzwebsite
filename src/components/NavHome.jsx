@@ -7,7 +7,7 @@ const NavHome = () => {
     return (
         <div className="bg-white p-4 flex justify-between items-center pt-[30px]">
             <div className="text-2xl text-black font-bold">Trollz</div>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 overflow-hidden">
                 <p className="hover:text-red-300 hover:underline font-bold text-red-600 cursor-pointer" onClick={() => {navigate('/')}}>Home</p>
                 <p className="hover:text-red-300 hover:underline font-bold text-red-600 cursor-pointer">Contact</p>
                 <p className="hover:text-red-300 hover:underline font-bold text-red-600 cursor-pointer">About</p>
@@ -24,7 +24,7 @@ const NavHome = () => {
                         <Search color='black'/>
                     </button>
                     <Heart color='black'/>
-                    <ShoppingCart color='black'/>
+                    <ShoppingCart color='black' onClick={() => {navigate('/cart')}} className='cursor-pointer'/>
                 </div>
 
             </div>
