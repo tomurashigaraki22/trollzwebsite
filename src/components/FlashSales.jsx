@@ -38,9 +38,9 @@ const FlashSales = () => {
           <p className="border-2 bg-red-600 border-red-600 w-[20px] rounded-md">.</p>
           <p className="text-red-600 font-bold">Sales</p>
         </div>
-        <div className="flex flex-row items-start space-x-10">
+        <div className="flex flex-col items-start space-x-10">
           <p className="text-red-600 text-4xl font-bold">Flash Sales</p>
-          <div className="flex flex-row items-start space-x-7 pl-10">
+          <div className="flex flex-row items-start space-x-7 pt-4">
             <div>
               <p className="text-2xl font-bold">Weeks</p>
               <p className="text-3xl font-bold">02</p>
@@ -61,7 +61,7 @@ const FlashSales = () => {
             </div>
           </div>
         </div>
-        <div className="flex space-x-4 pt-10">
+        <div className="flex space-x-4 pt-10 overflow-x-auto">
           {items.map((item, index) => (
             <div key={index} className="border-4 p-4 w-[200px] hover:border-red-600 ml-[100px]" onClick={() => navigate(`/product/${item.id}`)}>
               <div className="flex flex-col items-center justify-center">

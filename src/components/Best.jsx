@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { BASE_TEST } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 const Best = () => {
   const [items, setItems] = useState([]);
+  const navigate = useNavigate()
 
   useEffect(() => {
     async function getItems() {
@@ -46,9 +48,9 @@ const Best = () => {
           <div>
             <p className="text-red-600 font-bold text-4xl pt-5">Best Selling Products</p>
           </div>
-          <div className="flex space-x-4 pt-10 overflow-x-auto">
+          <div className="flex space-x-4 pt-10 overflow-x-auto ml-5">
             {items.map((item, index) => (
-              <div key={index} className="border-4 p-4 w-[300px] hover:border-red-600 ml-[20px]">
+              <div key={index} className="border-4 p-4 w-[300px] hover:border-red-600 ml-[20px]" onClick={() => navigate(`/product/${item.id}`)}>
                 <div className="flex flex-col items-center justify-center">
                   {/* Display your item content here */}
                   <div className="flex flex-col items-start cursor-pointer">

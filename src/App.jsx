@@ -8,6 +8,9 @@ import Register from './pages/Register'
 import HomePage from './pages/HomePage'
 import Product from './pages/Product'
 import Cart from './pages/Cart'
+import PrivacyPolicy from './pages/PrivacyPolicy'
+import Search from './pages/Search'
+import Category from './pages/Category'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -20,6 +23,11 @@ function App() {
         <Route path='/home' element={<HomePage/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/product/:productId' element={<Product />}>
+        </Route>
+        <Route path='/pop' element={<PrivacyPolicy/>}/>
+        <Route path='/search/:query' element={<Search/>}>
+        </Route>
+        <Route path='/category/:cate' element={<Category/>}>
         </Route>
       </Routes>
     </Router>

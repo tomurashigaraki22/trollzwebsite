@@ -39,7 +39,7 @@ const Login = () => {
             setloggingin(false)
             navigate('/home')
         }
-        else if (resp2.status === 404){
+        else if (resp2.status === 401){
             setwrongeop(true)
             setloggingin(false)
         }
@@ -49,56 +49,52 @@ const Login = () => {
         }
     }
 
-
-
     return (
-        <div>
+        <div className="pt-8 pb-8">
             <Header />
             <Navbar />
-            <div>
-                <div className="flex flex-row items-center space-x-[100px] pt-[50px] justify-center w-full">
+            <div className="flex justify-center space-x-8 mb-[60px] mt-[60px] lg:mb-[100px] lg:mt-[100px] md:mb-[100px] md:mt-[100px] sm:pr-[100px]">
+                {/* Conditional rendering for image based on screen size */}
+                <div className="hidden sm:block">
                     <img
                         src={Imga}
                         alt="Login Image"
-                        className="w-[700px] h-[500px] rounded-md"
+                        className="w-[400px] h-[300px] rounded-md"
                     />
-                    <div>
-                        <div className="mb-4">
-                            <p className="text-4xl font-bold">Log In To Trollz</p>
-                            <p className="text-gray-600 pt-3 pb-4">Enter your details below</p>
-                        </div>
-                        <div className="flex flex-col space-y-6">
-                            {wrongeop && <p className="text-red-600 italic pb-2">Invalid email or password</p>}
-                            {unknown && <p className="text-red-600 italic pb-2">Unknown error occurred</p>}
-                            <input
-                                type="text"
-                                placeholder="Email"
-                                className="border-b p-2 outline-none border-gray-500 w-[300px]"
-                                value={email}
-                                onChange={(e) => setemail(e.target.value)}
-                            />
-                            <input
-                                type="password"
-                                placeholder="Password"
-                                className="border-b p-2 outline-none border-gray-500 "
-                                value={password}
-                                onChange={(e) => setpassword(e.target.value)}
-                            />
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                    <div className="mb-4">
+                        <p className="text-4xl font-bold">Log In To Trollz</p>
+                        <p className="text-gray-600 pt-3 pb-4">Enter your details below</p>
+                    </div>
+                    <div className="flex flex-col space-y-6">
+                        {wrongeop && <p className="text-red-600 italic pb-2">Invalid email or password</p>}
+                        {unknown && <p className="text-red-600 italic pb-2">Unknown error occurred</p>}
+                        <input
+                            type="text"
+                            placeholder="Email"
+                            className="border-b p-2 outline-none border-gray-500 w-[300px]"
+                            value={email}
+                            onChange={(e) => setemail(e.target.value)}
+                        />
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            className="border-b p-2 outline-none border-gray-500 "
+                            value={password}
+                            onChange={(e) => setpassword(e.target.value)}
+                        />
 
-                            <div className="flex flex-row items-center justify-between">
-                                    <button
-                                    onClick={() => {onlogin()}}
-                                        className="bg-red-500 text-white p-3 rounded-sm hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300 w-[80px]"
-                                    >
-                                    {loggingin ? <Dots color="#fff" /> : 'Log In'}
-                                    </button>
-                                
-                                <p className="text-red-600">Forget password?</p>
-                            </div>
-
+                        <div className="flex flex-row items-center justify-between">
+                            <button
+                                onClick={() => {onlogin()}}
+                                className="bg-red-500 text-white p-3 rounded-sm hover:bg-red-600 focus:outline-none focus:ring focus:border-blue-300 w-[80px]"
+                            >
+                                {loggingin ? <Dots color="#fff" /> : 'Log In'}
+                            </button>
+                            <p className="text-red-600">Forget password?</p>
                         </div>
                     </div>
-                    
                 </div>
             </div>
             <Footer/>

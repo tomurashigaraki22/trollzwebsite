@@ -4,8 +4,8 @@ import { BaggageClaim, Headphones, ShieldCheck } from "lucide-react";
 const Prefooter = () => {
     return (
         <div>
-            <div className="flex flex-row items-center justify-center space-x-10 pt-[140px] pb-[140px]">
-                <div className="flex flex-col items-center">
+            <div className="flex flex-col md:flex-row lg:flex-row items-center justify-center space-y-10 md:space-x-10 lg:space-x-10 pt-10 md:pt-20 lg:pt-40 pb-10 md:pb-20 lg:pb-40">
+                <div className="flex flex-col items-center lg:pt-11">
                     <div className="border-4 rounded-full border-gray-600 p-4 bg-black">
                         <BaggageClaim color="white" size={60} />
                     </div>
