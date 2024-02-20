@@ -1,8 +1,10 @@
 import React from "react";
 import { Copyright, SendHorizontal } from "lucide-react";
 import { Instagram, Facebook } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+    const navigate = useNavigate()
     return (
         <div className="bg-black px-4 md:px-8 lg:px-12 xl:px-16 py-8 md:py-12 lg:py-16 xl:py-20 mt-20">
             <div className="flex flex-col md:flex-row items-start justify-between space-y-6 md:space-y-0 md:space-x-6 lg:space-x-8">
@@ -37,8 +39,8 @@ const Footer = () => {
                 </div>
                 <div className="hidden sm:flex flex-col items-start space-y-4 md:w-1/4 lg:w-1/5 text-white">
                     <p className="text-xl">Quick Link</p>
-                    <p>Privacy Policy</p>
-                    <p>Terms Of Service</p>
+                    <p className="hover:cursor-pointer" onClick={() => navigate('/pop')}>Privacy Policy</p>
+                    <p className="hover:cursor-pointer" onClick={() => navigate('/tos')}>Terms Of Service</p>
                     <p>FAQ</p>
                     <p>Contact</p>
                 </div>

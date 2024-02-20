@@ -7,20 +7,25 @@ const NavHome = () => {
     const navigate = useNavigate();
     const [value, setvalue] = useState('');
     const [err, seterr] = useState(false);
+    const [loading, setloading] = useState(false)
 
     const search = async () => {
+        setloading(true)
         const response = await fetch(`${BASE_TEST}/search/${value}`);
         if (!response.ok) {
+            setloading(false)
             return;
         }
         const resp2 = await response.json();
         if (resp2.status === 200) {
             console.log('yay');
             console.log(resp2.feedback);
+            setloading(false)
             navigate(`/search/${value}`, { state: { items: resp2.feedback } });
         } else {
             console.log('No');
             console.log('Why: ', resp2);
+            setloading(false)
             seterr(true);
         }
     };
@@ -38,7 +43,7 @@ const NavHome = () => {
                         onChange={(e) => setvalue(e.target.value)}
                     />
                     <button className="bg-white-500 p-2 rounded-full" onClick={search}>
-                        <Search color='black' />
+                        {loading ? 'Loading...' : <Search color='black' />}
                     </button>
                 </div>
                 <ShoppingCart color='black' onClick={() => {navigate('/cart')}} className='cursor-pointer'/>

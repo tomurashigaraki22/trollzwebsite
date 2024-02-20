@@ -59,7 +59,7 @@ const SearchRes = ({ item }) => {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-screen-lg">
                     {item.map((ite, index) => (
-                        <div className="flex flex-col items-center space-y-2" key={index}>
+                        <div className="flex flex-col items-center space-y-2 bg-white rounded-lg shadow-md p-4" key={index}>
                             <div style={{ height: "200px" /* set a fixed height */ }} onClick={() => navigate(`/product/${ite.id}`)}>
                                 <img
                                     src={`${BASE_TEST}/${ite.img}`}
@@ -84,9 +84,9 @@ const SearchRes = ({ item }) => {
                                 )
                                 
                             )}
-                            <div className="flex flex-col items-center space-y-2" onClick={() => navigate(`/product/${ite.id}`)}>
-                                <p>{ite.caption}</p>
-                                <p>NGN {ite.price.toLocaleString()}</p>
+                            <div className="flex flex-col items-start space-y-2" onClick={() => navigate(`/product/${ite.id}`)}>
+                                <p className="font-bold text-gray-800">NGN {ite.price.toLocaleString()}</p>
+                                <p className="text-sm text-gray-600">{ite.caption}</p>
                             </div>
                         </div>
                     ))}
