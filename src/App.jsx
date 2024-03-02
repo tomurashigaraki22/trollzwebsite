@@ -12,6 +12,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy'
 import Search from './pages/Search'
 import Category from './pages/Category'
 import TermsOfService from './pages/TermsOfService'
+import Admin from './pages/Admin'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +32,7 @@ function App() {
         <Route path='/category/:cate' element={<Category/>}>
         </Route>
         <Route path='/tos' element={<TermsOfService/>}/>
+        <Route path='/admin' element={<Admin/>}/>
       </Routes>
     </Router>
   )
